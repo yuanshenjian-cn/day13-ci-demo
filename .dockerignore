@@ -1,0 +1,38 @@
+# Ignore build artifacts
+build/
+target/
+.gradle/
+
+# Ignore IDE files
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore Git files
+.git/
+.gitignore
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.log
+
+# Ignore test artifacts
+**/test-results/
+**/reports/
+
+# Ignore node modules (if any)
+node_modules/
+
+# Ignore documentation
+README.md
+*.md
+
+# Ignore CI/CD files (these are not needed in the container)
+.github/

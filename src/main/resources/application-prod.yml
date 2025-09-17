@@ -1,0 +1,38 @@
+spring:
+  jpa:
+    show-sql: false
+
+server:
+  port: ${PORT:8080}
+  compression:
+    enabled: true
+  http2:
+    enabled: true
+
+logging:
+  level:
+    com.oocl.springbootemployee: WARN
+    org.springframework.web: ERROR
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
+  metrics:
+    export:
+      jmx:
+        enabled: false
+    enable:
+      process: false
+      system: false
+      jvm: false
+    binders:
+      processor: false
+      uptime: false
+      jvm: false
