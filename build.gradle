@@ -34,6 +34,30 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
+sonar {
+    properties {
+        property "sonar.projectKey", "yuanshenjian-cn_day13-ci-cd-demo"
+        property "sonar.organization", "yuanshenjian-cn"
+        property "sonar.host.url", "https://sonarcloud.io"
+        property "sonar.sources", "src/main/java"
+        property "sonar.tests", "src/test/java"
+        property "sonar.java.binaries", "build/classes/java/main"
+        property "sonar.java.test.binaries", "build/classes/java/test"
+        property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
+    }
+}
+
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        csv.required = false
+        html.required = true
+    }
+}
+
+test.finalizedBy jacocoTestReport
+
